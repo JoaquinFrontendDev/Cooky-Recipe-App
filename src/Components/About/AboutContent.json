@@ -1,0 +1,6 @@
+{
+  "AboutTitle": "About Section",
+  "AboutP": "The idea behind this APP was trying to excercise some React Hooks and API consuming. All the way was a practice project, just to add a new item to my little portfolio. \nThis SPA consumes EDAMAM API, most precisely the 'Recipe Search API', and renders a highly atomic part of each recipe (label, image, ingredients, calories). \nRecipes also can be filtered by main ingredient and dish type. The API itself has some limitations regarding it's filters, and was a nice challenge for me to use it. \nThis APP is build with vanilla React Js and Styled Components, no frameworks. Lastly, it will be updates in the future, as I continue improving my abilities, and also some bugfixes or not fully implemented functionalities.",
+  "AboutAPI": "Edamam's Nutrition Analysis API provides developers the tools to submit recipe content (the title and ingredient list), and in return get a nutritional analysis based on the original information provided. \nWith the API, other fields of the recipe can also be analyzed- types of recipes, nutrient information, and label definitions.",
+  "AboutFooter": {}
+}
