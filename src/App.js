@@ -14,6 +14,8 @@ const App = () => {
 	const [mainType, setMainType] = useState('')
 	const url = `https://api.edamam.com/api/recipes/v2?type=public&q=${mainIngredient}&app_id=${apiID}&app_key=${apiKey}&ingr=3-4&dishType=${mainType}`
 	const [nextUrl, setNextUrl] = useState('')
+	// eslint-disable-next-line no-unused-vars
+	const [previousUrl, setPreviousUrl] = useState('')
 	const [recipes, setRecipes] = useState([])
 	const [isOpen, setIsOpen] = useState(false)
 	const toggle = () => setIsOpen(!isOpen)
@@ -30,6 +32,7 @@ const App = () => {
 
 	useEffect(() => {
 		getRecipes()
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [mainIngredient, mainType])
 
 	return (
@@ -37,9 +40,9 @@ const App = () => {
 			<GlobalStyle />
 			<Switch>
 				<Route exact path='/'>
-					<Hero toggle={toggle} isOpen={isOpen} component={Hero} />
+					<Hero toggle={toggle} isOpen={isOpen} />
 				</Route>
-				<Route exact path='/search' component={Recipes}>
+				<Route exact path='/search'>
 					<Recipes
 						recipes={recipes}
 						setRecipes={setRecipes}
@@ -51,11 +54,12 @@ const App = () => {
 						isOpen={isOpen}
 						nextUrl={nextUrl}
 						setNextUrl={setNextUrl}
-						key={uuid()}
+						setPreviousUrl={setPreviousUrl}
 						id={uuid()}
+						key={uuid()}
 					/>
 				</Route>
-				<Route exact path='/about' component={About}>
+				<Route exact path='/about'>
 					<About toggle={toggle} isOpen={isOpen} />
 				</Route>
 			</Switch>
