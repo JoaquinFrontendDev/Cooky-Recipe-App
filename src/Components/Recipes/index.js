@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { useHistory, useLocation } from 'react-router'
 import Navbar from '../Navbar'
 import SearchBar from '../SearchBar'
 import Sidebar from '../Sidebar'
@@ -22,13 +21,10 @@ const Recipes = ({
 	isOpen,
 	nextUrl,
 	setNextUrl,
-	setPreviousUrl,
 	id,
 	key,
 }) => {
-	const history = useHistory()
 	const [fav, setFav] = useState(false)
-	const location = useLocation()
 
 	const setFavourite = () => {
 		setFav(!fav)
