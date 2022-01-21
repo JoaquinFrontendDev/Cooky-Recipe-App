@@ -5,17 +5,14 @@ import { GlobalStyle } from './GlobalStyles'
 import Hero from './Components/Hero'
 import Recipes from './Components/Recipes'
 import About from './Components/About'
-import { v4 as uuid } from 'uuid'
 
 const App = () => {
 	const apiKey = 'fe8629681214d2c676285197c507a723'
 	const apiID = '371c3927'
-	const [mainIngredient, setMainIngredient] = useState('')
-	const [mainType, setMainType] = useState('')
+	const [mainIngredient, setMainIngredient] = useState('cheese')
+	const [mainType, setMainType] = useState('dessert')
 	const url = `https://api.edamam.com/api/recipes/v2?type=public&q=${mainIngredient}&app_id=${apiID}&app_key=${apiKey}&ingr=3-4&dishType=${mainType}`
 	const [nextUrl, setNextUrl] = useState('')
-	// eslint-disable-next-line no-unused-vars
-	const [previousUrl, setPreviousUrl] = useState('')
 	const [recipes, setRecipes] = useState([])
 	const [isOpen, setIsOpen] = useState(false)
 	const toggle = () => setIsOpen(!isOpen)
@@ -54,9 +51,6 @@ const App = () => {
 						isOpen={isOpen}
 						nextUrl={nextUrl}
 						setNextUrl={setNextUrl}
-						setPreviousUrl={setPreviousUrl}
-						id={uuid()}
-						key={uuid()}
 					/>
 				</Route>
 				<Route exact path='/about'>

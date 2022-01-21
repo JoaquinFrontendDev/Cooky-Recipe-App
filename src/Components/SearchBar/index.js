@@ -23,7 +23,6 @@ const SearchBar = ({ setMainIngredient, setMainType }) => {
 
 	const handleSelect = (e) => {
 		setMainType(e.target.value)
-		console.log(e.target.value)
 	}
 	/*------------------------------------------------------------*/
 	return (
@@ -35,8 +34,8 @@ const SearchBar = ({ setMainIngredient, setMainType }) => {
 				required
 			/>
 			<SearchSelect onChange={handleSelect}>
-				{dishTypes.map((el) => (
-					<SearchOption>{el}</SearchOption>
+				{dishTypes.map((el, index) => (
+					<SearchOption key={index}>{el}</SearchOption>
 				))}
 			</SearchSelect>
 			<SearchBtn onClick={handleIngredientSubmit}>Search</SearchBtn>

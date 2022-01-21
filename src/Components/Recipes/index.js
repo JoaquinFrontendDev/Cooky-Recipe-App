@@ -1,12 +1,14 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React from 'react'
 import Navbar from '../Navbar'
 import SearchBar from '../SearchBar'
 import Sidebar from '../Sidebar'
 import RecipeItem from './RecipeItem'
+import { v4 as uuid } from 'uuid'
 import {
 	RecipeChangePage,
 	RecipeChangePageContainer,
+	RecipesContainer,
 	RecipeSectionContainer,
 } from './RecipesStyled'
 
@@ -21,17 +23,7 @@ const Recipes = ({
 	isOpen,
 	nextUrl,
 	setNextUrl,
-	id,
-	key,
 }) => {
-	const [fav, setFav] = useState(false)
-
-	const setFavourite = () => {
-		setFav(!fav)
-	}
-	const goBack = () => {
-		console.log(goBack)
-	}
 	const goNextPage = () => {
 		axios.get(nextUrl).then((res) => {
 			setRecipes(res.data.hits)
@@ -49,17 +41,18 @@ const Recipes = ({
 				setMainIngredient={setMainIngredient}
 				setMainType={setMainType}
 			/>
-			<RecipeItem
-				recipes={recipes}
-				mainIngredient={mainIngredient}
-				mainType={mainType}
-				setFavourite={setFavourite}
-				fav={fav}
-				id={id}
-				key={key}
-			/>
+			<RecipesContainer>
+				{recipes.length > 0 &&
+					recipes.map((recipeObj) => (
+						<RecipeItem
+							recipes={recipeObj.recipe}
+							mainIngredient={mainIngredient}
+							mainType={mainType}
+							key={uuid()}
+						/>
+					))}
+			</RecipesContainer>
 			<RecipeChangePageContainer>
-				<RecipeChangePage onClick={goBack}>Previous Page</RecipeChangePage>
 				<RecipeChangePage onClick={goNextPage}>Next Page</RecipeChangePage>
 			</RecipeChangePageContainer>
 		</RecipeSectionContainer>
