@@ -33,7 +33,7 @@ const Recipes = ({
 
 	return (
 		<RecipeSectionContainer>
-			<Navbar toggle={toggle} />
+			<Navbar toggle={toggle} id='top' />
 			<Sidebar toggle={toggle} isOpen={isOpen} />
 
 			<SearchBar

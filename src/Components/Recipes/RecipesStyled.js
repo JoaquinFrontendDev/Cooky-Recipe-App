@@ -20,7 +20,7 @@ export const RecipeSectionContainer = styled.section`
 export const RecipesContainer = styled.div`
 	display: grid;
 	justify-self: center;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 350px));
+	grid-template-columns: repeat(auto-fill, minmax(270px, 300px));
 	max-width: 100%;
 	padding: 2rem;
 	grid-template-rows: auto;
